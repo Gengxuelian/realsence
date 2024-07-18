@@ -22,7 +22,7 @@ pip install panda-python
 ```python
 pip install panda_python-0.7.5+libfranka.0.9.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 ```
-* 获取API key替换至文件src/lmp_main.py中
+* 获取API key替换至文件src/lmp_main.py中  
 **2、设置网络**  
 在电脑主机和机器人控制器之间用网线连接，使用静态网络将控制器和工作站配置在同一网段上。  
 
