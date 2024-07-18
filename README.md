@@ -11,4 +11,4 @@
 | IP地址 | 172.16.0.1 | 172.16.0.2 |  
 | 网络掩码 | 24 | 24 |  
 
-详情：[Alt](https://franka.cn/FCI/getting_started.html "title")
+详情：[Franka入门指南](https://franka.cn/FCI/getting_started.html "title")
