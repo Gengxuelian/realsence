@@ -7,7 +7,7 @@
 conda create -n voxposer-env python=3.9
 conda activate voxposer-env
 ```
-* 安装依赖
+* 安装基本依赖
 ```python
 pip install -r requirements.txt
 ```
