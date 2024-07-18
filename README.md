@@ -24,6 +24,27 @@ pip install -r requirements.txt
 
 详情：[Franka入门指南](https://franka.cn/FCI/getting_started.html " ")  
 **2、服务器主机连接到Frank机械臂**  
- 网页端输入ip地址：172.16.0.2 
- 解锁机械臂关节  
- 激活FCI接口（点击一次使窗口弹出激活态）
+ * 网页端输入ip地址：172.16.0.2  
+ * 解锁机械臂关节  
+ * 激活FCI接口（点击一次使窗口弹出激活态）
+### 摄像头参数处理
+**1、内参获取**  
+```python
+python get_intrinsics/intrinsics.py
+```
+**2、外参标定**
+* 获取标定板（可以打印``Data/ChArUco_DICT_6X6_250_4_3_50_5_new.png``）
+* 用机械臂抓手抓取标定板用摄像头拍摄图片保存在Data目录下
+* 保存不同图片下的机械臂姿态，与图片一一对应
+```python
+python get_extrinsics_charuco/arm_pose.py
+```
+* 运行脚本文件获取相机外参
+```python
+python get_extrinsics_charuco/head_cam_calibration_func.py
+```
+将获取的内参外参替换到项目文件中
+## 项目运行
+```python
+python src/lmp_main.py
+```
