@@ -13,16 +13,13 @@ conda activate voxposer-env
 ```python
 pip install -r requirements.txt
 ```
-* 安装panda_py
-```python
-pip install panda-python
-```
-* 安装对应的libfranka python版本
+* 安装panda_py对应的libfranka python版本
 下载'panda_py_0.7.5_libfranka_0.9.2.zip', 解压后运行：
 ```python
 pip install panda_python-0.7.5+libfranka.0.9.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 ```
-* 获取API key替换至文件src/lmp_main.py中  
+* 获取API key替换至文件src/lmp_main.py中
+
 **2、设置网络**  
 在电脑主机和机器人控制器之间用网线连接，使用静态网络将控制器和工作站配置在同一网段上。  
 
@@ -32,6 +29,7 @@ pip install panda_python-0.7.5+libfranka.0.9.2-cp39-cp39-manylinux_2_17_x86_64.m
 | 网络掩码 | 24 | 24 |  
 
 详情：[Franka入门指南](https://franka.cn/FCI/getting_started.html " ")  
+
 **3、服务器主机连接到Frank机械臂**  
  * 网页端输入ip地址：172.16.0.2  
  * 解锁机械臂关节  
