@@ -1,6 +1,6 @@
 # Voxposer Franka复现  
 ## 项目介绍
-在franka机械臂上复现VoxPoser方法，搭建两个摄像头获取场景信息，利用LLM(ChatGPT-4)和视觉语言模型(owlv2)结合生成3D map，规划路径，采用ik获取机械臂自由度，控制执行动作。  
+在franka机械臂上复现VoxPoser方法，搭建两个摄像头获取场景信息，利用LLM(ChatGPT-4)和视觉语言模型(owlv2)结合生成3D map，规划路径，后采用ik获取机械臂自由度，控制执行动作。  
 ### 环境配置  
 * 创建cuda环境
 ```python
@@ -37,9 +37,38 @@ pip install panda_python-0.7.5+libfranka.0.9.2-cp39-cp39-manylinux_2_17_x86_64.m
  * 网页端输入ip地址：172.16.0.2  
  * 解锁机械臂关节  
  * 激活FCI接口（点击一次使窗口弹出激活态）
-### 摄像头参数处理
-**1、环境配置**
-安装pyrealsense2
+### 摄像头处理
+**1、环境配置-安装librealsense SDK**
+```python
+git clone https://github.com/IntelRealSense/librealsense.git
+cd librealsense
+```
+* 安装依赖
+```python
+sudo apt-get install libudev-dev pkg-config libgtk-3-dev
+sudo apt-get install libusb-1.0-0-dev pkg-config
+sudo apt-get install libglfw3-dev
+sudo apt-get install libssl-dev
+```
+* 进入到librealsense文件夹目录下，运行Intel Realsense 的许可脚本
+```python
+./scripts/setup_udev_rules.sh
+```
+* 下载并编译内核模块
+```python
+./scripts/patch-realsense-ubuntu-lts.sh
+```
+* 编译SDK2.0
+```python
+cd librealsense
+mkdir build
+cd build
+cmake ../ -DBUILD_EXAMPLES=true
+make
+sudo make install
+```
+* 在终端运行realsense-viewer测试
+* 安装pyrealsense2
 ```python
 pip install pyrealsense2    
 ```
